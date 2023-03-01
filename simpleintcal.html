@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito',sans-serif;
+  }
+body {
+    background-color: #ff4c29;
+
+}
+ 
+
+.calculator {
+  width: 350px;
+  height: 650px;
+  background-color:purple;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%,-50%);
+  border-radius:10px;
+  box-shadow: 5px 5px 10px rgba(0,0 0, 0, 0.5);
+  text-align: center;
+  padding: 10px 0px;
+  color:white;
+  margin-top:30px;
+}
+
+h2 {
+margin-top:5px;
+margin-bottom: 5px;
+
+}
+ 
+input{
+width: 300px;
+height: 20px;
+padding: 5px;
+margin: 10px;
+border: none;
+outline: none;
+border-radius: 5px;
+}
+button {
+font-size: 16px;
+width: 250px;
+height: 20px;
+border-radius: 5px;
+border: none;
+color:#082032;
+background-color:red;
+font-weight: 999;
+}
+p {
+
+color: white;
+margin-top: 5px;
+
+}
+</style>
+    <title>Simple Interest Calculator</title>
+</head>
+<body>
+   
+   
+
+  <div class="calculator">
+     <h6>GCVR<h6>
+     <h2>Simple Interest Calculator</h2> 
+    
+    
+   <input type="date" id="d1">
+   
+    
+    
+   <input type="date" id="d2">
+
+   <button onclick="calculateDays()">Get difference</button>
+
+   <p id="output"></p>
+
+    <label for="amount">Principal Amount</label>
+     
+    <input type="number" placeholder="Enter Principal Amount"
+    id="amount">
+    
+
+    <label for="rate">Rate %</label>
+  
+    <input type="number" placeholder="Enter Rate"
+    id="rate">
+    
+
+    <label for="time">Time(in Days)</label>
+    <br>
+    <input type="number" placeholder="Enter Time"
+    id="time">
+    <br>
+
+    <button onclick="answer()">Calculate</button>
+
+    <p>Principal Amount: <span id="output_1"></span></p>
+    <p>Total Interest: <span id="output_2"></span></p>
+    <p>Total Value: <span id="output_3"></span></p>
+  </div>
+<script>
+
+    function calculateDays(){
+    var d1=document.getElementById("d1").value;
+    var d2=document.getElementById("d2").value;
+    const dateOne=new Date(d1);
+    const dateTwo=new Date(d2);
+    const time=Math.abs(dateTwo-dateOne);
+    const days=Math.ceil(time/(1000*60*60*24));
+    document.getElementById("output").innerHTML = days;
+
+   } 
+
+  </script>
+<script>
+  function answer(){
+    var amount_input=parseFloat(document.
+    getElementById("amount").value);
+    var rate_input=parseFloat(document
+    .getElementById("rate").value);
+    var time_input=parseFloat(document.
+    getElementById("time").value);
+
+   var interest=Math.round(amount_input*rate_input*time_input/3000);
+   var total=Math.round(interest + amount_input);
+
+   document.getElementById("output_1").
+   innerHTML = amount_input;
+   document.getElementById("output_2").
+   innerHTML = interest;
+   document.getElementById("output_3").
+   innerHTML = total;
+
+ }
+
+</script> 
+
+</body>
+</html>
